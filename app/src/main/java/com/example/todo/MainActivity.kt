@@ -7,36 +7,25 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import java.time.LocalDateTime
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var viewManager: LinearLayoutManager
-
-    private lateinit var viewAdapter: TodoAdapter
-
-    private var recyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = TodoAdapter(Collections.emptyList<Todo>()) { todo: Todo, isChecked: Boolean ->
+        val viewManager = LinearLayoutManager(this)
+        val viewAdapter = TodoAdapter(emptyList()) { todo: Todo, isChecked: Boolean ->
             statusChangedFor(todo, isChecked)
         }
 
-        recyclerView = findViewById<RecyclerView>(R.id.todosRecyclerView).apply {
-
+        findViewById<RecyclerView>(R.id.todosRecyclerView).apply {
             layoutManager = viewManager
-
             adapter = viewAdapter
-
         }
     }
 
-    private fun statusChangedFor(todo: Todo, checked: Boolean) {
+    private fun statusChangedFor(todo: Todo, isCompleted: Boolean) {
         Log.i("Status changed>>>>>>", todo.toString())
         // view model should update the todo with new status
     }
@@ -47,6 +36,5 @@ class MainActivity : AppCompatActivity() {
         Log.i("Add Todo>>>>>>", newTodoDescription.toString())
         // add the new todo to the repo via view model
     }
-
 
 }
