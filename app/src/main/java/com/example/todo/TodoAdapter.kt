@@ -38,6 +38,8 @@ class TodoAdapter(
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         val todo = todos[position]
         holder.todoDescriptionView.text = todo.description
+
+        holder.statusCheckbox.setOnCheckedChangeListener(null)
         holder.statusCheckbox.isChecked = todo.status == TodoStatus.COMPLETED
 
         holder.statusCheckbox.setOnCheckedChangeListener { checkbox: CompoundButton, isChecked: Boolean ->
