@@ -30,7 +30,7 @@ class TodoAdapter(
         viewType: Int
     ): TodoAdapter.TodoViewHolder {
         val todoItemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.todo_item, parent, false) as TextView
+            .inflate(R.layout.todo_item, parent, false)
 
         return TodoViewHolder(todoItemView)
     }

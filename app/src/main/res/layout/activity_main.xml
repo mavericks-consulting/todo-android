@@ -10,6 +10,7 @@
                   android:layout_height="wrap_content"
                   android:id="@+id/newTodoView"
                   android:weightSum="10"
+                  android:padding="16dp"
                   android:orientation="horizontal">
         <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -21,15 +22,19 @@
                     android:id="@+id/newTodoDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="hint"/>
+                    android:hint="@string/add_your_task_here"/>
         </android.support.design.widget.TextInputLayout>
 
         <Button
-                android:text="+"
+                android:background="@color/colorAccent"
+                android:textColor="@android:color/white"
+                android:text="@string/plus"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/addButton"
                 android:onClick="addTodo"
+                android:ellipsize="end"
                 android:layout_weight="3"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

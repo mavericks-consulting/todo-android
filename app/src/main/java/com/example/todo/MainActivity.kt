@@ -5,7 +5,9 @@ import android.support.design.widget.TextInputEditText
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
+import java.time.LocalDateTime
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,11 +37,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun statusChangedFor(todo: Todo, checked: Boolean) {
+        Log.i("Status changed>>>>>>", todo.toString())
         // view model should update the todo with new status
     }
 
     fun addTodo(view: View) {
+
         val newTodoDescription = findViewById<TextInputEditText>(R.id.newTodoDescription).text
+        Log.i("Add Todo>>>>>>", newTodoDescription.toString())
         // add the new todo to the repo via view model
     }
 
