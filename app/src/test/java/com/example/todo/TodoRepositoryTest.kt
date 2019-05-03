@@ -33,7 +33,6 @@ class TodoRepositoryTest {
         val todoCreatedToday = Todo(System.currentTimeMillis(), "todo1", LocalDateTime.now(), TodoStatus.OPEN)
         val todoCreatedYesterday = Todo(System.currentTimeMillis(), "todo2", LocalDateTime.now().minusDays(1), TodoStatus.OPEN)
         val todoCreatedTwoDaysAgo = Todo(System.currentTimeMillis(), "todo3", LocalDateTime.now().minusDays(2), TodoStatus.OPEN)
-
         val expectedTodos = listOf(todoCreatedToday, todoCreatedYesterday, todoCreatedTwoDaysAgo)
 
         todoRepository.add(todoCreatedTwoDaysAgo)
